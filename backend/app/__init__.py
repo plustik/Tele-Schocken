@@ -9,7 +9,10 @@ app = Flask(__name__, static_folder='static', static_url_path='')
 app.config.from_object(Config)
 mail = Mail(app)
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+if app.config["SQLALCHEMY_DATABASE_URI"].startswith("sqlite"):
+    migrate = Migrate(app, db, render_as_batch=True)
+else:
+    migrate = Migrate(app, db, render_as_batch=False)
 
 
 from app.api import bp as api_bp
@@ -25,7 +28,10 @@ def create_app():
     app.config.from_object(Config)
     mail = Mail(app)
     db = SQLAlchemy(app)
-    migrate = Migrate(app, db)
+    if app.config["SQLALCHEMY_DATABASE_URI"].startswith("sqlite"):
+        migrate = Migrate(app, db, render_as_batch=True)
+    else:
+        migrate = Migrate(app, db, render_as_batch=False)
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
     from app import routes, models, errors
