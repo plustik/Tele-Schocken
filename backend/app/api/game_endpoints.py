@@ -18,8 +18,9 @@ from flask_socketio import SocketIO
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
 # the best option based on installed packages.
-async_mode = "gevent"
-socketio = SocketIO(app, async_mode=async_mode)
+#async_mode = "gevent"
+#socketio = SocketIO(app, async_mode=async_mode)
+socketio = SocketIO(app)
 
 
 @socketio.on('connect', namespace='/game')
