@@ -16,13 +16,6 @@ class DefaultConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False
 
-    MAIL_SERVER = 'smtp.example.com'
-    MAIL_PORT = 465
-    MAIL_USERNAME = 'emailuser@example.com'
-    MAIL_PASSWORD = 'emailpwd'
-    MAIL_USE_TLS = False
-    MAIL_USE_SSL = True
-
     #SESSION_COOKIE_NAME = None
     SESSION_COOKIE_DOMAIN = "example.com"
     SESSION_COOKIE_HTTPONLY = True

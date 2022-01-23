@@ -10,9 +10,6 @@
   <div class="col-md-1 col-xs-2">
       <a class="roundetb" id="faqBtn" href="#"><i class="fas fa-question" title="Fragen?"></i></a>
   </div>
-  <div class="col-md-1 col-xs-2">
-      <a class="roundetb" id="feedbackBtn" href="#"><i class="fas fa-paper-plane" title="Feedback senden"></i></a>
-  </div>
 
 </div>
 <div class="container-fluid">
@@ -192,14 +189,7 @@
 
 
 
-<div class="row col-md-offset-1 col-md-6">
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/feedback.css') }}">
-</div>
 {% include "snippet/game_play_faq.html" %}
-
-
-{% include "snippet/feedback.html" %}
-
 
 
 
@@ -210,8 +200,6 @@
 {% block scripts %}
   {{ super() }}
   <script type=text/javascript src="{{url_for('static', filename='scripts/faq.js') }}">
-  </script>
-  <script type=text/javascript src="{{url_for('static', filename='scripts/feedback.js') }}">
   </script>
   <script type=text/javascript src="{{url_for('static', filename='scripts/adminpanel.js') }}">
   </script>
@@ -632,7 +620,6 @@
 
   function startup(){
     faq();
-    feedback();
     initial_game_data();
     var id = localStorage.getItem('id');
     var user = document.getElementById('ownuser');
