@@ -324,10 +324,6 @@ def transfer_chips(gid):
         game.changs_of_fallling_dice = game.changs_of_fallling_dice + 0.0002
         # play final (option choos)
         if game.play_final:
-            print('Hier')
-            print('userB.halfcount {}'.format(userB.halfcount))
-            print('game.halfcount {}'.format(game.halfcount))
-            print()
             if game.status == Status.PLAYFINAL:
                 message = 'Spieler {} hat das Finale verloren'.format(userB.name)
                 game.message = 'Spieler {} hat das Finale verloren'.format(userB.name)
@@ -357,7 +353,6 @@ def transfer_chips(gid):
                     userB.halfcount = userB.halfcount + 1
                     if game.halfcount == 2:
                         game.status = Status.PLAYFINAL
-                        print('play final')
                         game.halfcount = 0
                         for user in game.users:
                             user.passive = False
@@ -369,7 +364,6 @@ def transfer_chips(gid):
                         message = 'Player {} lose a half'.format(userB.name)
                 else:
                     message = 'Fehler'
-                    print('log error final ')
         # no final only count halfs
         else:
             userB.halfcount = userB.halfcount + 1
