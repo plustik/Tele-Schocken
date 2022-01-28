@@ -18,4 +18,4 @@ COPY ./backend .
 
 ENV TELESCHOCKEN_CONFIG_FILE=/etc/tele-schocken/tele-schocken.cfg
 
-ENTRYPOINT [ "gunicorn", "--workers=4", "-b", "0.0.0.0:5005", "--name=tele-schocken_server", "app:create_app()" ]
+ENTRYPOINT [ "gunicorn", "--access-logfile", "/var/tele-schocken/access.log", "--error-logfile", "/var/tele-schocken/error.log", "--workers=1", "--threads", "4", "-b", "0.0.0.0:5005", "--name=tele-schocken_server", "teleschocken:app" ]

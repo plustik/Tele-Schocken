@@ -3,11 +3,9 @@ import os
 
 
 class DefaultConfig(object):
-    #ENV = "production"
-    ENV = "development"
-    DEGUG = True
+    ENV = "production"
 
-    SERVER_NAME = "127.0.0.1:5000"
+    SERVER_NAME = "example.com"
     APPLICATION_ROOT = "/"
 
     SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -16,8 +14,6 @@ class DefaultConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False
 
-    #SESSION_COOKIE_NAME = None
-    SESSION_COOKIE_DOMAIN = "example.com"
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SECURE = False
     SESSION_COOKIE_SAMESITE = 'Strict'
